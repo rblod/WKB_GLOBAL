@@ -1,0 +1,15 @@
+
+FC=gfortran
+FFLAGS= -O2 -fdefault-real-8 -fdefault-double-8 -ffree-line-length-none  $(INCS) -I$(DIR_OBJS) -J$(DIR_OBJS)
+
+CPP=cpp
+CPPFLAGS=-P -traditional
+
+#NCDF_ROOT=/usr/local
+INC_NETCDF = -I$(shell nf-config --includedir)
+LIB_NETCDF= $(shell nf-config --flibs)
+
+INCS = $(INC_NETCDF)
+LIBS = $(LIB_NETCDF)
+
+

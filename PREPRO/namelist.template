@@ -1,0 +1,59 @@
+!-----------------------------------------------------------------------
+&namwkb       !   parameters of the run
+!-----------------------------------------------------------------------
+!
+ln_rst=.false.             ! start from previous run
+jpi=250                    ! number of points in x-direction : consitent with bathy file
+jpj=3                      ! number of points in y-direction                        
+rdx=390.                   ! resolution (m) ! not used if read_dx
+ln_read_dx=.true.          ! compute dx from read xi_rho and eta_rho 
+rdt=10.                    ! time step (s) dt < dx/Vmax
+nitermax = 50000           ! max iter for convergence
+eps = 1.e-6               ! criterion for convergence
+nit000=1                   ! first time step (-)
+nitend=1000               ! last  time step (-), here 6 hours duration 
+nstock=100               ! frequency of output in time step
+!
+logfile='<LOGFILE>'
+cn_dirin=' ./'                  ! input directory  
+cn_dirout='./'                 ! output directory
+cn_filein='<FILE_IN>'   ! input file for bathy
+cn_rstin=''   ! input file for bathy
+cn_bryin='shoreface_bry.nc'    ! input file for forcing
+bry_frq=300                    ! frequency of input file (s)     
+cn_fileout='<FILE_OUT>'  ! output file
+!
+ln_perio=.TRUE.           ! periodic domain
+ln_anabry=.TRUE.          ! analytical forcing 
+ln_brywest=.TRUE.         ! location of the offshore boudary
+ln_bryeast=.FALSE.        ! not really in S/W/N/E but relative to the local 
+ln_brysouth=.FALSE.       ! repere. West is offshore left and is highly recommended ...
+ln_brynorth=.FALSE.
+!
+wkb_amp=<WKB_AMP>
+wkb_prd=<WKB_PRD>
+wkb_dir=<WKB_DIR>
+wkb_tide=0.               ! Constant water anomaly
+!
+wkb_roller=0.
+wkb_rsb=0.1
+wkb_gam=0.3
+wkb_btg=0.7
+/
+!-----------------------------------------------------------------------
+&namwri       !   write or not output variables
+!-----------------------------------------------------------------------
+ln_w_epb  = .true.    ! breaking
+ln_w_wac  = .false.   ! wave action  
+ln_w_war  = .false.   ! wave roller
+ln_w_wkx  = .false.   ! x wave numbre
+ln_w_wky  = .false.   ! y wave number
+ln_w_cg   = .false.    ! groupe velocity
+ln_w_zeta = .false.   ! water level
+ln_w_hrm  = .true.   ! wave rms
+ln_w_wvn  = .false.   ! wave number
+ln_w_wcr  = .false.   ! phase velocity
+ln_w_wsr  = .false.   ! 
+ln_w_frq  = .true.    ! frequency 
+ln_w_wfc  = .false.   ! bottim friction diss.
+/
